@@ -17,10 +17,11 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: "*",
-    credentials: true, // allow frontend to send cookies
+    origin: "https://streamify-vibingfy-video-calls.vercel.app",
+    credentials: true,
   })
 );
+
 
 app.use(express.json());
 app.use(cookieParser());
