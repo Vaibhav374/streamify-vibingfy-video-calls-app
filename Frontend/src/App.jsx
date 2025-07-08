@@ -18,7 +18,7 @@ import Layout from "./components/Layout.jsx";
 import { useThemeStore } from "./store/useThemeStore.js";
 
 import FriendsPage from "./pages/FriendsPage.jsx";
-import PageLoader from "./components/Pageloader.jsx";
+import PageLoader from "./components/PageLoad.jsx";
 
 
 const App = () => {
