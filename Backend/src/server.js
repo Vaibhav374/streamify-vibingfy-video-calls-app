@@ -15,12 +15,24 @@ const PORT = process.env.PORT;
 
 const __dirname = path.resolve();
 
-app.use(
-  cors({
-    origin: "https://streamify-vibingfy-video-calls.vercel.app",
-    credentials: true,
-  })
-);
+const allowedOrigins = [
+  "https://streamify-vibingfy-video-calls.vercel.app",
+  "https://streamify-vibingfy-video-calls-vaibhavs-projects-ac8d0faa.vercel.app",
+  "http://localhost:5173"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, Postman)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS: " + origin));
+    }
+  },
+  credentials: true
+}));
+
 
 
 app.use(express.json());
